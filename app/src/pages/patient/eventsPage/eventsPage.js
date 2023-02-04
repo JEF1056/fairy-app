@@ -5,63 +5,87 @@ import NavRow from "../../../components/navRow";
 import secureLocalStorage from "react-secure-storage";
 
 import {
-  faArrowRightArrowLeft,
   faCapsules,
-  faNotesMedical,
+  faFileMedical,
+  faCalendarDays,
+  faVials,
+  faSuitcaseMedical,
+  faFileInvoiceDollar,
+  faUserDoctor,
+  faCalendarCheck,
+  faHouseMedical,
 } from "@fortawesome/free-solid-svg-icons";
 
-//use local storage to store list of events, then parse and loop through it
-//localStorage.setItem('myCat', 'Tom'); [0] key, [1] val
-//
-//add event function - add event key, func should read from event key to add on new event and then write back to the event key and then page should read and then loop through this event key
+//updating medical info - FileMedical
+//viewing medical info - FileMedical
+//appointment reminder - CalendarDays
+//new test result now available - Vials
+//upcoming procedure - SuitcaseMedical
+//medication refill needed - Capsules
+//medication change - Capsules
+//medication reminder - Capsules
+//billing info needed - FileInvoiceDollar
+//new message from healthcare staff - UserDoctor
+//appointment canceled - CalendarDays
+//appointment confirmation - CalendarDays
+//apointment re-scheduled - CalendarDays
+//appointment check-in - CalendarCheck
+//pharmacy update - HouseMedical
+//billing info updated - FileInvoiceDollar
 
-function addEvent(eventJson) {
-    var event = JSON.parse(eventJson)   
-    console.log(event)
-    secureLocalStorage.setItem("testkey", event)
+
+function addEvent(event) {
+    var events = JSON.parse(secureLocalStorage.getItem("events"))
+    events.concat(event)
+    events = JSON.stringify(events)
+    secureLocalStorage.setItem("events", events)
 }
 
-
-
-
 function EventsPage() {
-  addEvent('{"result":true, "count":42}')
-  //getitem
-
-  var storage = "[1,2,3]"
-
+  var storage = '[{"title":"Medical Information Updated.", "description":"Your allergies have been updated."},{"title":"Appointment Reminder", "description":"You have an appointment at 5:00PM tomorrow."}]'
+  secureLocalStorage.setItem("events", storage)
+  const jsonData = JSON.parse(secureLocalStorage.getItem("events"))
   
   return (
-    //loop through all events
-    //get their individual value
     <>
       <HeaderComponent />
 
       <div class="h-max pb-16">
+        
+        {jsonData.map((obj) => {
+          if (obj.title.includes("Medical Information")) {
+            obj.eventIcon = faFileMedical
+          } else if (obj.title.includes("Appointment")) {
+            obj.eventIcon = faCalendarDays
+          } else if (obj.title.includes("Billing")) {
+            obj.eventIcon = faFileInvoiceDollar
+          } else if (obj.title.includes("Medication")) {
+            obj.eventIcon = faCapsules
+          } else if (obj.title.includes("Pharmacy")) {
+            obj.eventIcon = faHouseMedical
+          } else if (obj.title.includes("Procedure")) {
+            obj.eventIcon = faSuitcaseMedical
+          } else if (obj.title.includes("Test")) { //test as in test results
+            obj.eventIcon = faVials
+          } else if (obj.title.includes("Message")) {
+            obj.eventIcon = faUserDoctor
+          }
+    
+          //eventIcon
+          //title
+          //description
+          return (
+          <NavRow 
+            icon={obj.eventIcon}
+            title={obj.title}
+            description={obj.description}
+          />
+          )
+          
+          })}
+        
+        <p>{storage}</p>
 
-        {
-          JSON.parse(storage, (key) => {
-            <p>{key}</p>
-          })
-        }
-
-        <NavRow
-          icon={faArrowRightArrowLeft}
-          title="Export Data"
-          description="Transfer from one medical provider to another"
-        />
-
-        <NavRow
-          icon={faCapsules}
-          title="View Medications"
-          description="See prescriptions and medication schedule"
-        />
-
-        <NavRow
-            icon={faNotesMedical}
-            title = "Test Alert"
-            description = "Test desc"
-        />
       </div>
 
       <FooterComponent />
