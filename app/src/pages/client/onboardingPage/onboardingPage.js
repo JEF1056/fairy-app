@@ -24,27 +24,70 @@ function OnBoardingPage() {
         placeholder="Type here"
         class="input w-full max-w-xs"
       />
-      <br></br>
       Preferred Name:
-      <br></br>
       <input
         type="text"
         placeholder="Type here"
         class="input w-full max-w-xs"
       />
       <br></br>
-      Please select your gender:
-      <br></br>
+      Sex:
       <select class="select max-w-xs">
         <option disabled selected>
           Select
         </option>
-        <option>Homer</option>
-        <option>Marge</option>
-        <option>Bart</option>
-        <option>Lisa</option>
-        <option>Maggie</option>
+        <option>Female</option>
+        <option>Male</option>
+        <option></option>
       </select>
+      <br></br>
+      Preferred gender:
+      <select class="select max-w-xs">
+        <option disabled selected>
+          Select
+        </option>
+        <option>Female</option>
+        <option>Male</option>
+        <option>Non-binary</option>
+      </select>
+      <br></br>
+      Address:
+      <br></br>
+      <input
+        type="text"
+        placeholder="Address Line 1"
+        class="input w-full max-w-xs"
+      />
+      <input
+        type="text"
+        placeholder="Address Line 2"
+        class="input w-full max-w-xs"
+      />
+      <br></br>
+      <input
+        type="text"
+        placeholder="City"
+        class="input w-full max-w-xs"
+      />
+      <input
+        type="text"
+        placeholder="State"
+        class="input w-full max-w-xs"
+      />
+      <input
+      type="text"
+      placeholder="ZIP"
+      class="input w-full max-w-xs"
+    />
+    <br></br>
+    Emergency Contact Information:
+    <br></br>
+    <input
+      type="text"
+      placeholder="Name"
+      class="input w-full max-w-xs"
+    />
+    
     </>
   );
 }
