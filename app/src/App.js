@@ -1,8 +1,8 @@
 import React from "react";
-import HomePage from "./pages/patient/homePage/homePage";
-import OnBoardingPage from "./pages/patient/onboardingPage/onboardingPage";
-import EventsPage from "./pages/patient/eventsPage/eventsPage";
-import TransferPage from "./pages/patient/transferPage/transferPage";
+import HomePage from "./pages/client/homePage/homePage";
+import OnBoardingPage from "./pages/client/onboardingPage/onboardingPage";
+import EventsPage from "./pages/client/eventsPage/eventsPage";
+import TransferPage from "./pages/client/transferPage/transferPage";
 import { RecoilRoot } from "recoil";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
@@ -13,15 +13,15 @@ const router = createBrowserRouter([
     element: <OnBoardingPage />,
   },
   {
-    path: "/patient",
+    path: "/client",
     element: <HomePage />,
   },
   {
-    path: "/patient/events",
+    path: "/client/events",
     element: <EventsPage />,
   },
   {
-    path: "/patient/transfer",
+    path: "/client/transfer",
     element: <TransferPage />,
   },
 ]);

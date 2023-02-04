@@ -1,7 +1,7 @@
 import React from "react";
-import HeaderComponent from "../../../components/header";
-import FooterComponent from "../../../components/footer";
-import NavRow from "../../../components/navRow";
+import HeaderComponent from "../../../components/client/header";
+import FooterComponent from "../../../components/client/footer";
+import NavRow from "../../../components/client/navRow";
 import secureLocalStorage from "react-secure-storage";
 
 import {
@@ -33,59 +33,57 @@ import {
 //pharmacy update - HouseMedical
 //billing info updated - FileInvoiceDollar
 
-
 function addEvent(event) {
-    var events = JSON.parse(secureLocalStorage.getItem("events"))
-    events.concat(event)
-    events = JSON.stringify(events)
-    secureLocalStorage.setItem("events", events)
+  var events = JSON.parse(secureLocalStorage.getItem("events"));
+  events.concat(event);
+  events = JSON.stringify(events);
+  secureLocalStorage.setItem("events", events);
 }
 
 function EventsPage() {
-  var storage = '[{"title":"Medical Information Updated.", "description":"Your allergies have been updated."},{"title":"Appointment Reminder", "description":"You have an appointment at 5:00PM tomorrow."}]'
-  secureLocalStorage.setItem("events", storage)
-  const jsonData = JSON.parse(secureLocalStorage.getItem("events"))
-  
+  var storage =
+    '[{"title":"Medical Information Updated.", "description":"Your allergies have been updated."},{"title":"Appointment Reminder", "description":"You have an appointment at 5:00PM tomorrow."}]';
+  secureLocalStorage.setItem("events", storage);
+  const jsonData = JSON.parse(secureLocalStorage.getItem("events"));
+
   return (
     <>
       <HeaderComponent />
 
       <div class="h-max pb-16">
-        
         {jsonData.map((obj) => {
           if (obj.title.includes("Medical Information")) {
-            obj.eventIcon = faFileMedical
+            obj.eventIcon = faFileMedical;
           } else if (obj.title.includes("Appointment")) {
-            obj.eventIcon = faCalendarDays
+            obj.eventIcon = faCalendarDays;
           } else if (obj.title.includes("Billing")) {
-            obj.eventIcon = faFileInvoiceDollar
+            obj.eventIcon = faFileInvoiceDollar;
           } else if (obj.title.includes("Medication")) {
-            obj.eventIcon = faCapsules
+            obj.eventIcon = faCapsules;
           } else if (obj.title.includes("Pharmacy")) {
-            obj.eventIcon = faHouseMedical
+            obj.eventIcon = faHouseMedical;
           } else if (obj.title.includes("Procedure")) {
-            obj.eventIcon = faSuitcaseMedical
-          } else if (obj.title.includes("Test")) { //test as in test results
-            obj.eventIcon = faVials
+            obj.eventIcon = faSuitcaseMedical;
+          } else if (obj.title.includes("Test")) {
+            //test as in test results
+            obj.eventIcon = faVials;
           } else if (obj.title.includes("Message")) {
-            obj.eventIcon = faUserDoctor
+            obj.eventIcon = faUserDoctor;
           }
-    
+
           //eventIcon
           //title
           //description
           return (
-          <NavRow 
-            icon={obj.eventIcon}
-            title={obj.title}
-            description={obj.description}
-          />
-          )
-          
-          })}
-        
-        <p>{storage}</p>
+            <NavRow
+              icon={obj.eventIcon}
+              title={obj.title}
+              description={obj.description}
+            />
+          );
+        })}
 
+        <p>{storage}</p>
       </div>
 
       <FooterComponent />

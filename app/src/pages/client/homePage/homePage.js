@@ -1,7 +1,7 @@
 import React from "react";
-import HeaderComponent from "../../../components/header";
-import FooterComponent from "../../../components/footer";
-import NavRow from "../../../components/navRow";
+import HeaderComponent from "../../../components/client/header";
+import FooterComponent from "../../../components/client/footer";
+import NavRow from "../../../components/client/navRow";
 import {
   faArrowRightArrowLeft,
   faCapsules,

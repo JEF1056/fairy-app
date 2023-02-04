@@ -1,11 +1,10 @@
 import React from "react";
-import HeaderComponent from "../../../components/header";
-import FooterComponent from "../../../components/footer";
-import NavRow from "../../../components/navRow";
+import HeaderComponent from "../../../components/client/header";
+import FooterComponent from "../../../components/client/footer";
 import QRCode from "react-qr-code";
 import { useRecoilCallback, useRecoilValue } from "recoil";
 import { transferCode } from "../../../util/transferCodes";
-import CountDownBadge from "../../../components/countDownBadge";
+import CountDownBadge from "../../../components/client/countDownBadge";
 import { v4 as uuidv4 } from "uuid";
 import { GetUserID } from "../../../util/userData";
 
