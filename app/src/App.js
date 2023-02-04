@@ -1,5 +1,6 @@
 import React from "react";
 import HomePage from "./pages/patient/homePage/homePage";
+import OnBoardingPage from "./pages/patient/onboardingPage/onboardingPage";
 import EventsPage from "./pages/patient/eventsPage/eventsPage";
 import TransferPage from "./pages/patient/transferPage/transferPage";
 
@@ -9,7 +10,7 @@ import "./App.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <OnBoardingPage />,
   },
   {
     path: "/patient",

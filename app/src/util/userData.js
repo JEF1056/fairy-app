@@ -18,3 +18,13 @@ export function GetUserID() {
   }
   return userId;
 }
+
+export function SetUserName() {
+  let userName = secureLocalStorage.getItem("userName");
+  console.log(userName);
+  if(userName == null) {
+    userName = uuidv4();
+    secureLocalStorage.setItem("userName", userName);
+  }
+  return userName;
+}
