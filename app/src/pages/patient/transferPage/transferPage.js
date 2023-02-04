@@ -4,8 +4,11 @@ import FooterComponent from "../../../components/footer";
 import NavRow from "../../../components/navRow";
 import QRCode from "react-qr-code";
 import { GetUserID } from "../../../util/userData";
+// import { useRecoilValue } from "recoil";
+import CountDownBadge from "../../../components/countDownBadge";
 
 function TransferPage() {
+
   return (
     <>
       <HeaderComponent />
@@ -17,13 +20,7 @@ function TransferPage() {
           </figure>
           <div class="card-body">
             <h2 class="card-title">Transfer code</h2>
-            <span class="badge">
-              <p>{"Valid for "}</p>
-              <span class="countdown">
-                <span style={{ "--value": 56 }}></span>
-              </span>
-              s
-            </span>
+            <CountDownBadge />
             <p>Show this code to your medical provider.</p>
           </div>
         </div>
