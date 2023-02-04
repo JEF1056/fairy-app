@@ -12,17 +12,13 @@ function TransferPage() {
 
       <div class="h-max pb-16 m-4">
         <div class="card lg:card-side bg-base-100 shadow-xl">
-          <figure>
-            <QRCode
-              size={256}
-              style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-              value={GetUserID()}
-            />
+          <figure className="m-4">
+            <QRCode size={256} value={GetUserID()} />
           </figure>
           <div class="card-body">
             <h2 class="card-title">Transfer code</h2>
             <span class="badge">
-              {"Valid for "}{" "}
+              <p>{"Valid for "}</p>
               <span class="countdown">
                 <span style={{ "--value": 56 }}></span>
               </span>
