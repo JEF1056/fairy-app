@@ -3,7 +3,7 @@ import HeaderComponent from "../../../components/client/header";
 import FooterComponent from "../../../components/client/footer";
 import NavRow from "../../../components/client/navRow";
 import secureLocalStorage from "react-secure-storage";
-import alertComponent from "../../../components/alert";
+import alertComponent from "../../../components/client/alert";
 
 import {
   faCapsules,
@@ -16,7 +16,7 @@ import {
   faCalendarCheck,
   faHouseMedical,
 } from "@fortawesome/free-solid-svg-icons";
-import AlertComponent from "../../../components/alert";
+import AlertComponent from "../../../components/client/alert";
 
 //updating medical info - FileMedical
 //viewing medical info - FileMedical

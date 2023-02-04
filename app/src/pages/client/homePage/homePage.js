@@ -16,7 +16,7 @@ function HomePage() {
         <NavRow
           icon={faArrowRightArrowLeft}
           title="Export Data"
-          url="/patient/transfer"
+          url="/client/transfer"
           description="Transfer from one medical provider to another"
         />
 
