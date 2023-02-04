@@ -3,6 +3,7 @@ import HeaderComponent from "../../../components/client/header";
 import FooterComponent from "../../../components/client/footer";
 import NavRow from "../../../components/client/navRow";
 import secureLocalStorage from "react-secure-storage";
+import alertComponent from "../../../components/alert";
 
 import {
   faCapsules,
@@ -15,6 +16,7 @@ import {
   faCalendarCheck,
   faHouseMedical,
 } from "@fortawesome/free-solid-svg-icons";
+import AlertComponent from "../../../components/alert";
 
 //updating medical info - FileMedical
 //viewing medical info - FileMedical
@@ -41,8 +43,50 @@ function addEvent(event) {
 }
 
 function EventsPage() {
-  var storage =
-    '[{"title":"Medical Information Updated.", "description":"Your allergies have been updated."},{"title":"Appointment Reminder", "description":"You have an appointment at 5:00PM tomorrow."}]';
+  var storage = [
+    {
+      title: "Medical Information Updated.",
+      description: "Your allergies have been updated.",
+    },
+    {
+      title: "Appointments",
+      description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
+    },
+    {
+      title: "Test Result Available.",
+      description: "Your XYZ scan is now available.",
+    },
+    {
+      title: "Upcoming Procedure",
+      description: "You have a procedure scheduled for 2:00PM tomorrow.",
+    },
+    {
+      title: "Medication Refill Needed",
+      description: "Your prescription is running low.",
+    },
+    {
+      title: "Billing Information Needed",
+      description: "Billing information needed.",
+    },
+    {
+      title: "Healthcare Staff Message",
+      description: "You have received a new message from a healthcare staff.",
+    },
+    {
+      title: "Appointment Re-Scheduled",
+      description:
+        "Your appointment has been re-scheduled to Tuesday, February 21st at 5:00PM.",
+    },
+    {
+      title: "Appointment Check-In",
+      description: "Check-in for your appointment.",
+    },
+    {
+      title: "Pharmacy",
+      description: "View Pharmacy.",
+    },
+  ];
+  storage = JSON.stringify(storage);
   secureLocalStorage.setItem("events", storage);
   const jsonData = JSON.parse(secureLocalStorage.getItem("events"));
 
@@ -54,6 +98,9 @@ function EventsPage() {
         {jsonData.map((obj) => {
           if (obj.title.includes("Medical Information")) {
             obj.eventIcon = faFileMedical;
+          } else if (obj.title.includes("Check")) {
+            //Check as in Check-In
+            obj.eventIcon = faCalendarCheck;
           } else if (obj.title.includes("Appointment")) {
             obj.eventIcon = faCalendarDays;
           } else if (obj.title.includes("Billing")) {
@@ -83,10 +130,10 @@ function EventsPage() {
           );
         })}
 
-        <p>{storage}</p>
-      </div>
+        <AlertComponent title="123" description="test" />
 
-      <FooterComponent />
+        {/* <p>{storage}</p> */}
+      </div>
     </>
   );
 }

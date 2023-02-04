@@ -1,8 +1,9 @@
 import React from "react";
-import HomePage from "./pages/client/homePage/homePage";
-import OnBoardingPage from "./pages/client/onboardingPage/onboardingPage";
-import EventsPage from "./pages/client/eventsPage/eventsPage";
-import TransferPage from "./pages/client/transferPage/transferPage";
+import ClientHomePage from "./pages/client/homePage/homePage";
+import ClientOnBoardingPage from "./pages/client/onboardingPage/onboardingPage";
+import ClientEventsPage from "./pages/client/eventsPage/eventsPage";
+import ClientTransferPage from "./pages/client/transferPage/transferPage";
+import ProviderHomePage from "./pages/provider/homePage/homePage";
 import { RecoilRoot } from "recoil";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
@@ -10,19 +11,23 @@ import "./App.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <OnBoardingPage />,
+    element: <ClientOnBoardingPage />,
   },
   {
     path: "/client",
-    element: <HomePage />,
+    element: <ClientHomePage />,
   },
   {
     path: "/client/events",
-    element: <EventsPage />,
+    element: <ClientEventsPage />,
   },
   {
     path: "/client/transfer",
-    element: <TransferPage />,
+    element: <ClientTransferPage />,
+  },
+  {
+    path: "/provider",
+    element: <ProviderHomePage />,
   },
 ]);
 
