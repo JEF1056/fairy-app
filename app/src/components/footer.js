@@ -12,8 +12,6 @@ function FooterComponent() {
     { icon: faBook, title: "Log", path: "/patient/log" },
   ];
 
-  console.log(location)
-
   return (
     <div className="btm-nav bg-base-300">
       {buttons.map((button) => (

@@ -1,15 +1,16 @@
 import React from "react";
 import HomePage from "./pages/patient/homePage/homePage";
+import OnBoardingPage from "./pages/patient/onboardingPage/onboardingPage";
 import EventsPage from "./pages/patient/eventsPage/eventsPage";
 import TransferPage from "./pages/patient/transferPage/transferPage";
-
+import { RecoilRoot } from "recoil";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <OnBoardingPage />,
   },
   {
     path: "/patient",
@@ -27,9 +28,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <RecoilRoot>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </RecoilRoot>
   );
 }
 
