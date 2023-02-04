@@ -7,7 +7,7 @@ import {
   faCapsules,
 } from "@fortawesome/free-solid-svg-icons";
 
-function HomePage() {
+function TransferPage() {
   return (
     <>
       <HeaderComponent />
@@ -31,4 +31,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default TransferPage;

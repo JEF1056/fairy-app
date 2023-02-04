@@ -4,20 +4,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // 1. icon
 // 2. title
 // 3. description
-// 4. rightContent
-// 5. onClick
+// 4. url
 
 function NavRow(props) {
   return (
     <div class="m-4">
       <div class="alert shadow-lg">
-        <div>
+        <a href={props.url}>
           <FontAwesomeIcon icon={props.icon} className="pr-3" />
           <div>
+            <div class="text-xs text-gray-500">{props.url}</div>
             <h3 class="font-bold">{props.title}</h3>
             <div class="text-xs">{props.description}</div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

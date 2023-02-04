@@ -7,15 +7,12 @@ import {
   faCapsules,
 } from "@fortawesome/free-solid-svg-icons";
 
-
 //use local storage to store list of events, then parse and loop through it
 //localStorage.setItem('myCat', 'Tom'); [0] key, [1] val
 //
 //add event function - add event key, func should read from event key to add on new event and then write back to the event key and then page should read and then loop through this event key
 
 function EventsPage() {
-
-
   return (
     <>
       <HeaderComponent />

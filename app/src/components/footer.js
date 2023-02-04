@@ -7,9 +7,9 @@ function FooterComponent() {
   const activeClasses = "active bg-base-400";
 
   const buttons = [
-    { icon: faHome, title: "Home", path: "/" },
-    { icon: faCalendar, title: "Events", path: "/events" },
-    { icon: faBook, title: "Log", path: "/log" },
+    { icon: faHome, title: "Home", path: "/patient" },
+    { icon: faCalendar, title: "Events", path: "/patient/events" },
+    { icon: faBook, title: "Log", path: "/patient/log" },
   ];
 
   console.log(location)

@@ -1,6 +1,7 @@
 import React from "react";
-import HomePage from "./pages/client/homepage/homePage";
-import EventsPage from "./pages/client/eventspage/eventsPage";
+import HomePage from "./pages/patient/homePage/homePage";
+import EventsPage from "./pages/patient/eventsPage/eventsPage";
+import TransferPage from "./pages/patient/transferPage/transferPage";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
@@ -8,12 +9,20 @@ import "./App.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />, 
+    element: <HomePage />,
   },
   {
-    path: "/events",
+    path: "/patient",
+    element: <HomePage />,
+  },
+  {
+    path: "/patient/events",
     element: <EventsPage />,
-  }
+  },
+  {
+    path: "/patient/transfer",
+    element: <TransferPage />,
+  },
 ]);
 
 function App() {
