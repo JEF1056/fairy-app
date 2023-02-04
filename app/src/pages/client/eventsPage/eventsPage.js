@@ -3,7 +3,7 @@ import HeaderComponent from "../../../components/client/header";
 import FooterComponent from "../../../components/client/footer";
 import NavRow from "../../../components/client/navRow";
 import secureLocalStorage from "react-secure-storage";
-import alertComponent from "../../../components/client/alert";
+import AlertComponent from "../../../components/client/alert";
 
 import {
   faCapsules,
@@ -16,7 +16,6 @@ import {
   faCalendarCheck,
   faHouseMedical,
 } from "@fortawesome/free-solid-svg-icons";
-import AlertComponent from "../../../components/client/alert";
 
 //updating medical info - FileMedical
 //viewing medical info - FileMedical
@@ -37,7 +36,10 @@ import AlertComponent from "../../../components/client/alert";
 
 function addEvent(event) {
   var events = JSON.parse(secureLocalStorage.getItem("events"));
-  events.concat(event);
+  if (!events) {
+    events = []
+  }
+  events.push(event);
   events = JSON.stringify(events);
   secureLocalStorage.setItem("events", events);
 }
@@ -82,12 +84,13 @@ function EventsPage() {
       description: "Check-in for your appointment.",
     },
     {
-      title: "Pharmacy",
+      title: "Pharmacy Update",
       description: "View Pharmacy.",
     },
   ];
   storage = JSON.stringify(storage);
   secureLocalStorage.setItem("events", storage);
+  addEvent()
   const jsonData = JSON.parse(secureLocalStorage.getItem("events"));
 
   return (
@@ -122,16 +125,16 @@ function EventsPage() {
           //title
           //description
           return (
-            <NavRow
+            <AlertComponent
               icon={obj.eventIcon}
               title={obj.title}
               description={obj.description}
+              url="View"
             />
           );
         })}
 
-        <AlertComponent title="123" description="test" />
-
+        <FooterComponent />
         {/* <p>{storage}</p> */}
       </div>
     </>
