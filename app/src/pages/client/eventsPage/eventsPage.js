@@ -90,7 +90,6 @@ function EventsPage() {
   ];
   storage = JSON.stringify(storage);
   secureLocalStorage.setItem("events", storage);
-  addEvent()
   const jsonData = JSON.parse(secureLocalStorage.getItem("events"));
 
   return (
