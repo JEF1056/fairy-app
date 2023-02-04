@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import QrReader from "react-web-qr-reader";
+import { ConnectToPeer } from "../../../util/peer2peer";
+import { addEvent } from "../../client/eventsPage/eventsPage";
 
 const HomePage = () => {
   const delay = 500;
@@ -14,6 +16,8 @@ const HomePage = () => {
   const handleScan = (result) => {
     if (result) {
       setResult(result);
+      console.log(JSON.parse(result.data).uuid)
+      ConnectToPeer(JSON.parse(result.data).uuid)
     }
   };
 
@@ -29,7 +33,13 @@ const HomePage = () => {
         onError={handleError}
         onScan={handleScan}
       />
-      <p>{result}</p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <p>{JSON.stringify(result.data)}</p>
     </>
   );
 };

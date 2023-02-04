@@ -34,10 +34,10 @@ import {
 //pharmacy update - HouseMedical
 //billing info updated - FileInvoiceDollar
 
-function addEvent(event) {
+export function addEvent(event) {
   var events = JSON.parse(secureLocalStorage.getItem("events"));
   if (!events) {
-    events = []
+    events = [];
   }
   events.push(event);
   events = JSON.stringify(events);
@@ -45,51 +45,51 @@ function addEvent(event) {
 }
 
 function EventsPage() {
-  var storage = [
-    {
-      title: "Medical Information Updated.",
-      description: "Your allergies have been updated.",
-    },
-    {
-      title: "Appointments",
-      description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
-    },
-    {
-      title: "Test Result Available.",
-      description: "Your XYZ scan is now available.",
-    },
-    {
-      title: "Upcoming Procedure",
-      description: "You have a procedure scheduled for 2:00PM tomorrow.",
-    },
-    {
-      title: "Medication Refill Needed",
-      description: "Your prescription is running low.",
-    },
-    {
-      title: "Billing Information Needed",
-      description: "Billing information needed.",
-    },
-    {
-      title: "Healthcare Staff Message",
-      description: "You have received a new message from a healthcare staff.",
-    },
-    {
-      title: "Appointment Re-Scheduled",
-      description:
-        "Your appointment has been re-scheduled to Tuesday, February 21st at 5:00PM.",
-    },
-    {
-      title: "Appointment Check-In",
-      description: "Check-in for your appointment.",
-    },
-    {
-      title: "Pharmacy Update",
-      description: "View Pharmacy.",
-    },
-  ];
-  storage = JSON.stringify(storage);
-  secureLocalStorage.setItem("events", storage);
+  //   var storage = [
+  //     {
+  //       title: "Medical Information Updated.",
+  //       description: "Your allergies have been updated.",
+  //     },
+  //     {
+  //       title: "Appointments",
+  //       description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
+  //     },
+  //     {
+  //       title: "Test Result Available.",
+  //       description: "Your XYZ scan is now available.",
+  //     },
+  //     {
+  //       title: "Upcoming Procedure",
+  //       description: "You have a procedure scheduled for 2:00PM tomorrow.",
+  //     },
+  //     {
+  //       title: "Medication Refill Needed",
+  //       description: "Your prescription is running low.",
+  //     },
+  //     {
+  //       title: "Billing Information Needed",
+  //       description: "Billing information needed.",
+  //     },
+  //     {
+  //       title: "Healthcare Staff Message",
+  //       description: "You have received a new message from a healthcare staff.",
+  //     },
+  //     {
+  //       title: "Appointment Re-Scheduled",
+  //       description:
+  //         "Your appointment has been re-scheduled to Tuesday, February 21st at 5:00PM.",
+  //     },
+  //     {
+  //       title: "Appointment Check-In",
+  //       description: "Check-in for your appointment.",
+  //     },
+  //     {
+  //       title: "Pharmacy Update",
+  //       description: "View Pharmacy.",
+  //     },
+  //   ];
+  //   storage = JSON.stringify(storage);
+  //   secureLocalStorage.setItem("events", storage);
   const jsonData = JSON.parse(secureLocalStorage.getItem("events"));
 
   return (
