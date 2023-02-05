@@ -1,20 +1,24 @@
 import React from "react";
-//import HeaderComponent from "../../../components/client/header";
-//import FooterComponent from "../../../components/client/footer";
-//import NavRow from "../../../components/client/navRow";
+import { atom, useRecoilState } from "recoil";
 import {
   faArrowRightArrowLeft,
   faCapsules,
 } from "@fortawesome/free-solid-svg-icons";
 
+export const onBoardingStep = atom({
+  key: "onBoardingStep",
+  default: 0,
+});
+
 function OnBoardingPage() {
+  const [getOnBoardingStep, setOnBoardingStep] = useRecoilState(onBoardingStep)
   return (
     <>
       <ul class="steps steps-vertical lg:steps-horizontal">
-        <li class="step step-primary">Personal Information</li>
-        <li class="step step-primary">Medical History</li>
-        <li class="step">Insurance Information</li>
-        <li class="step">Review and Submit</li>
+        <li class= {getOnBoardingStep >= 0 ? "step step-primary": "step"}>Personal Information</li>
+        <li class= {getOnBoardingStep >= 1 ? "step step-primary": "step"}>Medical History</li>
+        <li class= {getOnBoardingStep >= 2 ? "step step-primary": "step"}>Insurance Information</li>
+        <li class= {getOnBoardingStep >= 3 ? "step step-primary": "step"}>Review and Submit</li>
       </ul>
       <br></br>
       Legal Name:
@@ -173,7 +177,7 @@ function OnBoardingPage() {
 
 
     <br></br>
-    <button class="btn">Next</button>
+    <button class="btn" onClick={() => {setOnBoardingStep(getOnBoardingStep+1)}}>Next</button>
     </>
   );
 }
