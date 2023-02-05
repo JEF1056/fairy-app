@@ -5,6 +5,9 @@ import NavRow from "../../../components/client/navRow";
 import {
   faArrowRightArrowLeft,
   faCapsules,
+  faHouseMedical,
+  faCalendarDay,
+  faUserDoctor,
 } from "@fortawesome/free-solid-svg-icons";
 
 function HomePage() {
@@ -21,13 +24,13 @@ function HomePage() {
         />
 
         <NavRow
-          icon={faCapsules}
+          icon={faCalendarDay}
           title="View Appointments"
           description="See appointments and converse with your doctor"
         />
 
         <NavRow
-          icon={faCapsules}
+          icon={faUserDoctor}
           title="View Nearby Facilities"
           description="See nearby facilities and their contact information"
         />
@@ -39,7 +42,7 @@ function HomePage() {
         />
 
         <NavRow
-          icon={faCapsules}
+          icon={faHouseMedical}
           title="View Nearby Pharmacies"
           description="See nearby pharmacies and their contact information"
         />
