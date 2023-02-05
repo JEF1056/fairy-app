@@ -2,6 +2,7 @@ import React from "react";
 import ClientHomePage from "./pages/client/homePage/homePage";
 import ClientOnBoardingPage from "./pages/client/onboardingPage/onboardingPage";
 import ClientEventsPage from "./pages/client/eventsPage/eventsPage";
+import ClientProfilePage from "./pages/client/profilePage/profilePage"
 import ClientTransferPage from "./pages/client/transferPage/transferPage";
 import ProviderHomePage from "./pages/provider/homePage/homePage";
 import { RecoilRoot } from "recoil";
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/client/events",
     element: <ClientEventsPage />,
+  },
+  {
+    path: "/client/profile",
+    element: <ClientProfilePage />,
   },
   {
     path: "/client/transfer",
