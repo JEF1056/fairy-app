@@ -20,7 +20,7 @@ function OnBoardingPage() {
         <li class= {getOnBoardingStep == 2 ? "step step-primary": "step"}>Insurance Information</li>
         <li class= {getOnBoardingStep == 3 ? "step step-primary": "step"}>Review and Submit</li>
       </ul>
-      switch (getOnBoardingStep) {
+      {switch (getOnBoardingStep) {
         case 0:
           <br></br>
       Legal Name:
@@ -179,8 +179,8 @@ function OnBoardingPage() {
           //insurance
         case 3:
           //review and submit
-      }
-      
+      };}
+  
 
 
 
