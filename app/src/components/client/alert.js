@@ -26,9 +26,15 @@ function AlertComponent(props) {
             <div class="text-xs">{props.description}</div>
           </div>
         </div>
-        <div class="flex-none">
-          <button class="btn btn-sm">{props.url}</button>
-        </div>
+        <a href={props.url}>
+          <div class="flex-none">
+            <button class="btn btn-sm m-2">{props.buttonMsg1}</button>
+
+            <button class="btn btn-sm m-2 bg-red-900">
+              {props.buttonMsg2}
+            </button>
+          </div>
+        </a>
       </div>
     </div>
   );

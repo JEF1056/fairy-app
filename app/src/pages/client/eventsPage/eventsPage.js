@@ -128,7 +128,9 @@ function EventsPage() {
               icon={obj.eventIcon}
               title={obj.title}
               description={obj.description}
-              url="View"
+              buttonMsg1="View"
+              buttonMsg2="Dismiss"
+              // url = "https://google.com"
             />
           );
         })}
