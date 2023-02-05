@@ -13,13 +13,13 @@ function ProfilePage() {
           {/* <figure class="px-10 pt-10">
             <img src="/jess.png" class="rounded-x1" />
           </figure> */}
-            <figure>
+          <figure>
             <div class="avatar">
-            <div class="w-24 rounded-xl">
+              <div class="w-24 rounded-xl">
                 <img src="/jess.png" />
+              </div>
             </div>
-            </div>
-            </figure>
+          </figure>
           <div class="card-body items-center text-center">
             <h1 class="card-title">Jess Fan</h1>
             <div class="overflow-x-auto">

@@ -4,7 +4,7 @@ import FooterComponent from "../../../components/client/footer";
 import NavRow from "../../../components/client/navRow";
 import secureLocalStorage from "react-secure-storage";
 import { v4 as uuidv4 } from "uuid";
-import moment from "moment"
+import moment from "moment";
 
 import {
   faCircleInfo,
@@ -59,36 +59,35 @@ function delEvent(uuid) {
 function EventsPage() {
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
-
+  
+    var fakeEvents = [
+      {
+        title: "Medical Information Updated",
+        description: "Your allergies have been updated.",
+      },
+      {
+        title: "Appointment Reminder",
+        description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
+      },
+      {
+        title: "Test Result Available.",
+        description: "Your XYZ scan is now available.",
+      },
+      {
+        title: "Upcoming Procedure",
+        description: "You have a procedure scheduled for 2:00PM tomorrow.",
+      },
+      {
+        title: "Medication Refill Needed",
+        description: "Your prescription is running low.",
+      },
+    ];
+  
   if (!secureLocalStorage.getItem("events")) {
-    addEvent({
-      title: "Medical Information Updated.",
-      description: "Your allergies have been updated.",
-    });
+    for (let i = 0; i < fakeEvents.length; i++) {
+      addEvent(fakeEvents[i])
+    }
   }
-
-  var fakeEvents = [
-    {
-      title: "Medical Information Updated.",
-      description: "Your allergies have been updated.",
-    },
-    {
-      title: "Appointments",
-      description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
-    },
-    {
-      title: "Test Result Available.",
-      description: "Your XYZ scan is now available.",
-    },
-    {
-      title: "Upcoming Procedure",
-      description: "You have a procedure scheduled for 2:00PM tomorrow.",
-    },
-    {
-      title: "Medication Refill Needed",
-      description: "Your prescription is running low.",
-    },
-  ];
 
   let events = JSON.parse(secureLocalStorage.getItem("events"));
   if (!events) {
@@ -103,7 +102,7 @@ function EventsPage() {
           <div class="hero min-h-max">
             <div class="hero-content text-center">
               <div class="max-w-md">
-                <p class="font-bold">No events 😭</p>
+                <p class="font-bold">No new events.</p>
               </div>
             </div>
           </div>
@@ -111,22 +110,27 @@ function EventsPage() {
           events.map((obj) => {
             if (obj.title.includes("Medical Information")) {
               obj.eventIcon = faFileMedical;
+              obj.color = "btn-primary"
             } else if (obj.title.includes("Check")) {
               //Check as in Check-In
               obj.eventIcon = faCalendarCheck;
             } else if (obj.title.includes("Appointment")) {
               obj.eventIcon = faCalendarDays;
+              obj.color = "btn-secondary"
             } else if (obj.title.includes("Billing")) {
               obj.eventIcon = faFileInvoiceDollar;
             } else if (obj.title.includes("Medication")) {
               obj.eventIcon = faCapsules;
+              obj.color = "btn-error"
             } else if (obj.title.includes("Pharmacy")) {
               obj.eventIcon = faHouseMedical;
             } else if (obj.title.includes("Procedure")) {
               obj.eventIcon = faSuitcaseMedical;
+              obj.color = "btn-warning"
             } else if (obj.title.includes("Test")) {
               //test as in test results
               obj.eventIcon = faVials;
+              obj.color = "btn-success"
             } else if (obj.title.includes("Message")) {
               obj.eventIcon = faUserDoctor;
             } else if (obj.title.includes("Provider")) {
