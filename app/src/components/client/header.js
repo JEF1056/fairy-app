@@ -7,9 +7,7 @@ function HeaderComponent() {
     <div className="navbar bg-base-300 b-2xl relative">
       <div className="flex-1">
         <div className="btn btn-ghost normal-case text-xl">
-          <a href="/client">
-            MediFae
-          </a>
+          <a href="/client">MediFae</a>
         </div>
       </div>
       <div className="flex-none">
