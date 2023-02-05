@@ -24,7 +24,6 @@ function ProfilePage() {
             <h1 class="card-title">Jess Fan</h1>
             <div class="overflow-x-auto">
               <table class="table table-compact">
-                <br></br>
                 <thead>
                   <th>Personal Information</th>
                 </thead>
@@ -54,8 +53,10 @@ function ProfilePage() {
                     <td>408-131-5829</td>
                   </tr>
                 </tbody>
-                <br></br>
-                <br></br>
+              </table>
+              <br></br>
+              <br></br>
+              <table class="table table-compact">
                 <thead>
                   <th>Medical Information</th>
                 </thead>
@@ -77,8 +78,10 @@ function ProfilePage() {
                     <td>Peanuts, Soy, Lactose, Meat</td>
                   </tr>
                 </tbody>
-                <br></br>
-                <br></br>
+              </table>
+              <br></br>
+              <br></br>
+              <table class="table table-compact">
                 <thead>
                   <th>Insurance Information</th>
                 </thead>
