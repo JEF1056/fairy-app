@@ -25,25 +25,25 @@ function HomePage() {
 
         <NavRow
           icon={faCalendarDay}
-          title="View Appointments"
+          title="Appointments"
           description="See appointments and converse with your doctor"
         />
 
         <NavRow
           icon={faUserDoctor}
-          title="View Nearby Facilities"
+          title="Nearby Facilities"
           description="See nearby facilities and their contact information"
         />
 
         <NavRow
           icon={faCapsules}
-          title="View Medications"
+          title="Medications"
           description="See prescriptions and medication schedule"
         />
 
         <NavRow
           icon={faHouseMedical}
-          title="View Nearby Pharmacies"
+          title="Nearby Pharmacies"
           description="See nearby pharmacies and their contact information"
         />
       </div>
