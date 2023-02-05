@@ -58,10 +58,36 @@ function delEvent(uuid) {
 function EventsPage() {
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
-  // addEvent({
-  //   title: "Medical Information Updated.",
-  //   description: "Your allergies have been updated.",
-  // });
+  if (!events) {
+    let events = JSON.parse(secureLocalStorage.getItem("events"));
+  }
+  addEvent({
+    title: "Medical Information Updated.",
+    description: "Your allergies have been updated.",
+  });
+  var fakeEvents = [{
+        uuid: uuidv4(),
+        title: "Medical Information Updated.",
+        description: "Your allergies have been updated.",
+      },
+      {
+        title: "Appointments",
+        description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
+      },
+      {
+        title: "Test Result Available.",
+        description: "Your XYZ scan is now available.",
+      },
+      {
+        title: "Upcoming Procedure",
+        description: "You have a procedure scheduled for 2:00PM tomorrow.",
+      },
+      {
+        title: "Medication Refill Needed",
+        description: "Your prescription is running low.",
+      },
+  ] 
+
   let events = JSON.parse(secureLocalStorage.getItem("events"));
   if (!events) {
     events = [];
@@ -103,7 +129,7 @@ function EventsPage() {
             //description
             return (
               <NavRow
-                icon={faCircleInfo}
+                icon={obj.eventIcon}
                 title={obj.title}
                 description={obj.description}
                 buttonText="Dismiss"
