@@ -16,8 +16,8 @@ const HomePage = () => {
   const handleScan = (result) => {
     if (result) {
       setResult(result);
-      console.log(JSON.parse(result.data).uuid)
-      ConnectToPeer(JSON.parse(result.data).uuid)
+      result = JSON.parse(result.data)
+      ConnectToPeer(result.uuid, result.code)
     }
   };
 
