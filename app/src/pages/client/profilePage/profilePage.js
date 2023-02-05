@@ -11,10 +11,7 @@ function ProfilePage() {
       <div class="h-max pb-16">
         <div class="card w-50 bg-base-100 shadow-xl m-10">
           <figure class="px-10 pt-10">
-            <img
-              src="jess.png"
-              class="rounded-x1"
-            />
+            <img src="/jess.png" class="rounded-x1" />
           </figure>
           <div class="card-body items-center text-center">
             <h1 class="card-title">Jess Fan</h1>
@@ -102,7 +99,7 @@ function ProfilePage() {
                   <tr>
                     <th>Insurance Card</th>
                     <td>
-                      <img src="#"></img>
+                      <img class="w-64" src="/insurance.jpg"></img>
                     </td>
                   </tr>
                 </tbody>
