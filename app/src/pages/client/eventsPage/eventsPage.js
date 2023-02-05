@@ -68,7 +68,6 @@ function EventsPage() {
 
   var fakeEvents = [
     {
-      uuid: uuidv4(),
       title: "Medical Information Updated.",
       description: "Your allergies have been updated.",
     },

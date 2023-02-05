@@ -12,8 +12,7 @@ function ProfilePage() {
         <div class="card w-50 bg-base-100 shadow-xl m-10">
           <figure class="px-10 pt-10">
             <img
-              src="https://images.ctfassets.net/hrltx12pl8hq/3j5RylRv1ZdswxcBaMi0y7/b84fa97296bd2350db6ea194c0dce7db/Music_Icon.jpg"
-              alt="Shoes"
+              src="jess.png"
               class="rounded-x1"
             />
           </figure>
