@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderComponent from "../../../components/client/header";
-import FooterComponent from "../../../components/client/footer";
+import FooterComponent from "../../../components/client/footer";    
 import QRCode from "react-qr-code";
 import { useRecoilCallback, useRecoilValue } from "recoil";
 import { transferCode } from "../../../util/transferCodes";

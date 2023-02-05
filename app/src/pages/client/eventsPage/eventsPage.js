@@ -1,4 +1,4 @@
-import React, { forceUpdate } from "react";
+import React from "react";
 import HeaderComponent from "../../../components/client/header";
 import FooterComponent from "../../../components/client/footer";
 import NavRow from "../../../components/client/navRow";
@@ -33,16 +33,31 @@ function delEvent(uuid) {
   var events = JSON.parse(secureLocalStorage.getItem("events"));
   //loop through all objects, check if uuid is the same
   //if same, remove it
-  for (let i = 0; i < events.length(); i++) {
-    if (events[i] == uuid) {
-      events.splice(i, 1);
+  if (!events) {
+    return;
+  }
+
+  let index = -1;
+  for (let i = 0; i < events.length; i++) {
+    if (events[i].uuid === uuid) {
+      index = i;
+      break;
     }
   }
-  secureLocalStorage.setItem("events", events);
-  forceUpdate();
+
+  if (index > -1) {
+    events.splice(index, 1);
+    if (!events) {
+      events = [];
+    }
+    events = JSON.stringify(events);
+    secureLocalStorage.setItem("events", events);
+  }
 }
 
 function EventsPage() {
+  const [, updateState] = React.useState();
+  const forceUpdate = React.useCallback(() => updateState({}), []);
   // addEvent({
   //   title: "Medical Information Updated.",
   //   description: "Your allergies have been updated.",
@@ -55,7 +70,6 @@ function EventsPage() {
   return (
     <>
       <HeaderComponent />
-
       <div class="h-max pb-16">
         {events.length === 0
           ? "No events!"
@@ -80,6 +94,8 @@ function EventsPage() {
                 obj.eventIcon = faVials;
               } else if (obj.title.includes("Message")) {
                 obj.eventIcon = faUserDoctor;
+              } else if (obj.title.includes("Provider")) {
+                obj.eventIcon = faUserDoctor;
               }
 
               //title
@@ -89,8 +105,16 @@ function EventsPage() {
                   icon={faCircleInfo}
                   title={obj.title}
                   description={obj.description}
+                  buttonText="Dismiss"
                   callback={() => {
                     delEvent(obj.uuid);
+                    forceUpdate();
+                  }}
+                  color={obj.color}
+                  url={obj.url}
+                  buttonCallback={() => {
+                    delEvent(obj.uuid);
+                    forceUpdate();
                   }}
                 />
               );

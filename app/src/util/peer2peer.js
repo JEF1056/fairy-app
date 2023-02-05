@@ -31,7 +31,7 @@ function delAuthorizedPeer(peerId) {
   var authorizedPeers = JSON.parse(
     secureLocalStorage.getItem("authorizedPeers")
   );
-  if (authorizedPeers && authorizedPeers.includes(peerId) | !authorizedPeers) {
+  if (!(authorizedPeers && authorizedPeers.includes(peerId)) | !authorizedPeers) {
     return;
   }
   const index = authorizedPeers.indexOf(peerId);
@@ -74,6 +74,8 @@ export function Peer2PeerHandler() {
               addEvent({
                 title: `Added a Provider (${data.user.name})`,
                 description: data.user.description,
+                url: `/client/provider/${data.uuid}`,
+                color: "btn-success",
               });
             }
           }
