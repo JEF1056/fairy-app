@@ -10,6 +10,7 @@ export const onBoardingStep = atom({
   default: 0,
 });
 
+
 function CardNode(props) {
   switch (props.step) {
     case 0:
@@ -146,39 +147,256 @@ function CardNode(props) {
           <br />
         </>
       );
-      break;
-    case 1:
-      break;
-    case 2:
-      break;
-    case 3:
-      break;
+      //break;
+    case 1: //medical history
+      return (
+        <>
+    <br />
+    <br></br>
+          Please select any allergies you may have (specify cause and nature of reaction):
+          <br></br>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Animals: </span>
+          <input type="text" placeholder="Type here" class="input input-bordered input-xs w-full max-w-xs" />
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Food: </span>
+          <input type="text" placeholder="Type here" class="input input-bordered input-xs w-full max-w-xs" />
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Insect stings: </span>
+          <input type="text" placeholder="Type here" class="input input-bordered input-xs w-full max-w-xs" />
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Medicine/drugs: </span>
+          <input type="text" placeholder="Type here" class="input input-bordered input-xs w-full max-w-xs" />
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Plants/Trees: </span>
+          <input type="text" placeholder="Type here" class="input input-bordered input-xs w-full max-w-xs" />
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Other (please list): </span>
+          <input type="text" placeholder="Type here" class="input input-bordered input-xs w-full max-w-xs" />
+          <br />
+          <br></br>
+
+          Medical History:
+          <br></br>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> ADD/ADHD</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Arthritis</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Asthma</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Anxiety</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Athlete's Foot</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Behavioral Changes</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Bed-wetting</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Bipolar Disorder</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Bleeding/Clotting Disorder</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Bronchitis</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Chicken pox</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Concussion</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Constipation</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Convulsions</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> COVID-19</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Crohn's Disease</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Depression</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Diabetes</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Down's Syndrome</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Eating Disorders</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Emotional Disturbances</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Epilepsy</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Eyes: Contact Lenses or Glasses</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Fainting</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Hay fever</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Headaches (frequent)</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Hearing Impairment</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Heart Defect/Disease</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Hepatitis A/B/C</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> HIV/AIDS</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Hypertension</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Kidney Disease</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Menstrual Complications</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Migraines</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Mononucleosis</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Muscular Disease/Disorder</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Nervous System Disorder</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Nosebleeds (frequent)</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Physical Disabilities</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Seizures</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Sickle Cell Trait or Disease</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Skeletal Disease/Disorder</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Skin Conditions</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Sleep Disturbance</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Visual Impairments</span>
+          <br />
+          <input type="checkbox" class="checkbox-xs" />
+          <span class="label-text"> Other (please list): </span>
+          <input type="text" placeholder="Type here" class="input input-bordered input-xs w-full max-w-xs" />
+          <br />
+          <br></br>
+          Please list any current medications:
+          <br></br>
+          <textarea placeholder="Bio" class="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
+          <br></br>
+          <br></br>
+          Any other dietary restrictions?
+          <br></br>
+          <textarea placeholder="Bio" class="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
+          <br></br>
+          <br />
+    </>
+      );
+    case 2: //insurance
+      return (
+      <>
+      <br />
+          Name of Insurance Carrier: <input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" />
+          <br></br>
+          Policy Number: <input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" />
+          <br></br>
+          Group Number: <input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" />
+          <br></br>
+          Insured's Name: <input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" />
+          <br></br>
+          Member ID: <input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" />
+          <br></br>
+          Relationship to Member (Self, etc.): <input type="text" placeholder="Type here" class="input input-bordered input-sm w-full max-w-xs" />
+          <br></br>
+          Upload insurance card (optional):
+          <br></br>
+          <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+          <br></br>
+
+      </>
+      );
+    case 3: //review and submit: add homepage button and back buttons
+      return (
+      <>
+      
+      </>
+      );
     default:
-      break;
+      return (
+        <>
+        
+        </>
+        );
   }
 }
+
 
 function OnBoardingPage() {
   const [getOnBoardingStep, setOnBoardingStep] = useRecoilState(onBoardingStep);
   return (
     <>
       <ul class="steps steps-vertical lg:steps-horizontal">
-        <li class={getOnBoardingStep == 0 ? "step step-primary" : "step"}>
+        <li class={getOnBoardingStep === 0 ? "step step-primary" : "step"}>
           Personal Information
         </li>
-        <li class={getOnBoardingStep == 1 ? "step step-primary" : "step"}>
+        <li class={getOnBoardingStep === 1 ? "step step-primary" : "step"}>
           Medical History
         </li>
-        <li class={getOnBoardingStep == 2 ? "step step-primary" : "step"}>
+        <li class={getOnBoardingStep === 2 ? "step step-primary" : "step"}>
           Insurance Information
         </li>
-        <li class={getOnBoardingStep == 3 ? "step step-primary" : "step"}>
+        <li class={getOnBoardingStep === 3 ? "step step-primary" : "step"}>
           Review and Submit
         </li>
       </ul>
-
+      <div class="m-4">
       <CardNode step={getOnBoardingStep} />
-
+      </div>
       <br />
       <button
         class="btn"
