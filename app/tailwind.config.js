@@ -5,15 +5,23 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: "#4edebf",
-          secondary: "#ccfbf1",
-          accent: "#fda4af",
-          neutral: "#e5e7eb",
+          primary: "#93c5fd",
+
+          secondary: "#bae6fd",
+
+          accent: "#99f6e4",
+
+          neutral: "#d1d5db",
+
           "base-100": "#f3f4f6",
-          info: "#93c5fd",
-          success: "#c4b5fd",
-          warning: "#f9a8d4",
-          error: "#a5f3fc",
+
+          info: "#67e8f9",
+
+          success: "#2dd4bf",
+
+          warning: "#fde68a",
+
+          error: "#fb7185",
 
           "--rounded-box": "1rem", // border radius rounded-box utility class, used in card and other large boxes
           "--rounded-btn": "0.5rem", // border radius rounded-btn utility class, used in buttons and similar element
