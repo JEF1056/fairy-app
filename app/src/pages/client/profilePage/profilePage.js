@@ -13,7 +13,7 @@ function ProfilePage() {
           <figure class="px-10 pt-10">
             <img
               src="/jess.png"
-              alt="Shoes"
+              alt="Jess Fan"
               class="rounded-x1"
             />
           </figure>
