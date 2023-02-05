@@ -31,7 +31,7 @@ function TransferPage() {
       role: "General practitioner",
     },
     {
-      image: "/alison.png",
+      image: "/alison2.jpg",
       name: "Alison Sun, DDS",
       tag: "Care Team",
       company: "MediFae (hospital)",

@@ -29,7 +29,7 @@ function CardNode(props) {
           />
           <br />
           <br />
-          <label class="mr-2">Preferred gender:</label>
+          <label class="mr-2">Preferred Gender:</label>
           <select class="select max-w-xs">
             <option disabled selected>
               Select
@@ -76,6 +76,8 @@ function CardNode(props) {
             placeholder="(XXX)-XXX-XXXX"
             class="input w-full max-w-xs"
           />
+          <br></br>
+          <br></br>
           Address:
           <br />
           <br />
@@ -103,9 +105,9 @@ function CardNode(props) {
           Emergency Contact Information:
           <br />
           <br />
-          Name:
+          <label class="mr-2">Name:</label>
           <input type="text" placeholder="Name" class="input w-full max-w-xs" />
-          Phone:
+          <label class="mr-2">Phone:</label>
           <input
             type="text"
             placeholder="(XXX)-XXX-XXXX"
@@ -113,7 +115,7 @@ function CardNode(props) {
           />
           <br />
           <br />
-          Relationship to Patient:
+          <label class="mr-2">Relationship to Patient:</label>
           <input
             type="text"
             placeholder="Type here"
@@ -152,6 +154,14 @@ function CardNode(props) {
       return (
         <>
           <br />
+          Code?
+          <br></br>
+          <input type="radio" name="radio-2" class="radio radio-primary" checked />
+          <span class="label-text">Full Code</span>
+          <br></br>
+          <input type="radio" name="radio-2" class="radio radio-primary" />
+          <span class="label-text">DNR</span>
+          <br></br>
           Please select any allergies you may have (specify cause and nature of
           reaction):
           <br></br>
