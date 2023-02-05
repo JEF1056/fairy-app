@@ -12,8 +12,7 @@ function ProfilePage() {
         <div class="card w-50 bg-base-100 shadow-xl m-10">
           <figure class="px-10 pt-10">
             <img
-              src="/jess.png"
-              alt="Jess Fan"
+              src="jess.png"
               class="rounded-x1"
             />
           </figure>
@@ -57,6 +56,10 @@ function ProfilePage() {
                   <th>Medical Information</th>
                 </thead>
                 <tbody>
+                <tr>
+                    <th>Code</th>
+                    <td>Full Code</td>
+                  </tr>
                   <tr>
                     <th>Allergies</th>
                     <td>Peanuts, Pollen, and Soy</td>
