@@ -7,6 +7,7 @@ import ProviderHomePage from "./pages/provider/homePage/homePage";
 import { RecoilRoot } from "recoil";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import { RecoilUtilsComponent } from "./util/recoilUtils";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ function App() {
   return (
     <RecoilRoot>
       <React.StrictMode>
+        <RecoilUtilsComponent />
         <RouterProvider router={router} />
       </React.StrictMode>
     </RecoilRoot>

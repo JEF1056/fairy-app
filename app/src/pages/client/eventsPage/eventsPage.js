@@ -47,6 +47,9 @@ export function addEvent(event) {
 function EventsPage() {
   //   var storage = [
   //     {
+  //       icon: faCapsules,
+  //       color
+  //        url :
   //       title: "Medical Information Updated.",
   //       description: "Your allergies have been updated.",
   //     },
@@ -90,50 +93,53 @@ function EventsPage() {
   //   ];
   //   storage = JSON.stringify(storage);
   //   secureLocalStorage.setItem("events", storage);
-  const jsonData = JSON.parse(secureLocalStorage.getItem("events"));
+  let events = JSON.parse(secureLocalStorage.getItem("events"));
+  if (!events) {
+    events = [];
+  }
 
   return (
     <>
       <HeaderComponent />
 
       <div class="h-max pb-16">
-        {jsonData.map((obj) => {
-          if (obj.title.includes("Medical Information")) {
-            obj.eventIcon = faFileMedical;
-          } else if (obj.title.includes("Check")) {
-            //Check as in Check-In
-            obj.eventIcon = faCalendarCheck;
-          } else if (obj.title.includes("Appointment")) {
-            obj.eventIcon = faCalendarDays;
-          } else if (obj.title.includes("Billing")) {
-            obj.eventIcon = faFileInvoiceDollar;
-          } else if (obj.title.includes("Medication")) {
-            obj.eventIcon = faCapsules;
-          } else if (obj.title.includes("Pharmacy")) {
-            obj.eventIcon = faHouseMedical;
-          } else if (obj.title.includes("Procedure")) {
-            obj.eventIcon = faSuitcaseMedical;
-          } else if (obj.title.includes("Test")) {
-            //test as in test results
-            obj.eventIcon = faVials;
-          } else if (obj.title.includes("Message")) {
-            obj.eventIcon = faUserDoctor;
-          }
+        {events.length === 0
+          ? "No events!"
+          : events.map((obj) => {
+              if (obj.title.includes("Medical Information")) {
+                obj.eventIcon = faFileMedical;
+              } else if (obj.title.includes("Check")) {
+                //Check as in Check-In
+                obj.eventIcon = faCalendarCheck;
+              } else if (obj.title.includes("Appointment")) {
+                obj.eventIcon = faCalendarDays;
+              } else if (obj.title.includes("Billing")) {
+                obj.eventIcon = faFileInvoiceDollar;
+              } else if (obj.title.includes("Medication")) {
+                obj.eventIcon = faCapsules;
+              } else if (obj.title.includes("Pharmacy")) {
+                obj.eventIcon = faHouseMedical;
+              } else if (obj.title.includes("Procedure")) {
+                obj.eventIcon = faSuitcaseMedical;
+              } else if (obj.title.includes("Test")) {
+                //test as in test results
+                obj.eventIcon = faVials;
+              } else if (obj.title.includes("Message")) {
+                obj.eventIcon = faUserDoctor;
+              }
 
-          //eventIcon
-          //title
-          //description
-          return (
-            <AlertComponent
-              icon={obj.eventIcon}
-              title={obj.title}
-              description={obj.description}
-              buttonMsg1="View"
-              buttonMsg2="Dismiss"
-              // url = "https://google.com"
-            />
-          );
-        })}
+              //eventIcon
+              //title
+              //description
+              return (
+                <AlertComponent
+                  icon={obj.eventIcon}
+                  title={obj.title}
+                  description={obj.description}
+                  url="View"
+                />
+              );
+            })}
 
         <FooterComponent />
         {/* <p>{storage}</p> */}
