@@ -6,7 +6,7 @@ function HeaderComponent() {
   return (
     <div className="navbar bg-base-300 b-2xl relative">
       <div className="flex-1">
-        <div className="btn btn-ghost normal-case text-xl">Medifae</div>
+        <div className="btn btn-ghost normal-case text-xl">MediFae</div>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">

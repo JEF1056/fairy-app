@@ -58,10 +58,36 @@ function delEvent(uuid) {
 function EventsPage() {
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
-  // addEvent({
-  //   title: "Medical Information Updated.",
-  //   description: "Your allergies have been updated.",
-  // });
+  if (!events) {
+    let events = JSON.parse(secureLocalStorage.getItem("events"));
+  }
+  addEvent({
+    title: "Medical Information Updated.",
+    description: "Your allergies have been updated.",
+  });
+  var fakeEvents = [{
+        uuid: uuidv4(),
+        title: "Medical Information Updated.",
+        description: "Your allergies have been updated.",
+      },
+      {
+        title: "Appointments",
+        description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
+      },
+      {
+        title: "Test Result Available.",
+        description: "Your XYZ scan is now available.",
+      },
+      {
+        title: "Upcoming Procedure",
+        description: "You have a procedure scheduled for 2:00PM tomorrow.",
+      },
+      {
+        title: "Medication Refill Needed",
+        description: "Your prescription is running low.",
+      },
+  ] 
+
   let events = JSON.parse(secureLocalStorage.getItem("events"));
   if (!events) {
     events = [];
@@ -71,55 +97,57 @@ function EventsPage() {
     <>
       <HeaderComponent />
       <div class="h-max pb-16">
-        {events.length === 0
-          ? "No events!"
-          : events.map((obj) => {
-              if (obj.title.includes("Medical Information")) {
-                obj.eventIcon = faFileMedical;
-              } else if (obj.title.includes("Check")) {
-                //Check as in Check-In
-                obj.eventIcon = faCalendarCheck;
-              } else if (obj.title.includes("Appointment")) {
-                obj.eventIcon = faCalendarDays;
-              } else if (obj.title.includes("Billing")) {
-                obj.eventIcon = faFileInvoiceDollar;
-              } else if (obj.title.includes("Medication")) {
-                obj.eventIcon = faCapsules;
-              } else if (obj.title.includes("Pharmacy")) {
-                obj.eventIcon = faHouseMedical;
-              } else if (obj.title.includes("Procedure")) {
-                obj.eventIcon = faSuitcaseMedical;
-              } else if (obj.title.includes("Test")) {
-                //test as in test results
-                obj.eventIcon = faVials;
-              } else if (obj.title.includes("Message")) {
-                obj.eventIcon = faUserDoctor;
-              } else if (obj.title.includes("Provider")) {
-                obj.eventIcon = faUserDoctor;
-              }
+        {events.length === 0 ? (
+          <h1 class="m-7">No events!</h1>
+        ) : (
+          events.map((obj) => {
+            if (obj.title.includes("Medical Information")) {
+              obj.eventIcon = faFileMedical;
+            } else if (obj.title.includes("Check")) {
+              //Check as in Check-In
+              obj.eventIcon = faCalendarCheck;
+            } else if (obj.title.includes("Appointment")) {
+              obj.eventIcon = faCalendarDays;
+            } else if (obj.title.includes("Billing")) {
+              obj.eventIcon = faFileInvoiceDollar;
+            } else if (obj.title.includes("Medication")) {
+              obj.eventIcon = faCapsules;
+            } else if (obj.title.includes("Pharmacy")) {
+              obj.eventIcon = faHouseMedical;
+            } else if (obj.title.includes("Procedure")) {
+              obj.eventIcon = faSuitcaseMedical;
+            } else if (obj.title.includes("Test")) {
+              //test as in test results
+              obj.eventIcon = faVials;
+            } else if (obj.title.includes("Message")) {
+              obj.eventIcon = faUserDoctor;
+            } else if (obj.title.includes("Provider")) {
+              obj.eventIcon = faUserDoctor;
+            }
 
-              //title
-              //description
-              return (
-                <NavRow
-                  icon={faCircleInfo}
-                  title={obj.title}
-                  description={obj.description}
-                  buttonText="Dismiss"
-                  callback={() => {
-                    delEvent(obj.uuid);
-                    forceUpdate();
-                  }}
-                  color={obj.color}
-                  url={obj.url}
-                  buttonCallback={() => {
-                    delEvent(obj.uuid);
-                    forceUpdate();
-                  }}
-                />
-              );
-            })}
-
+            //title
+            //description
+            return (
+              <NavRow
+                icon={obj.eventIcon}
+                title={obj.title}
+                description={obj.description}
+                buttonText="Dismiss"
+                callback={() => {
+                  delEvent(obj.uuid);
+                  forceUpdate();
+                }}
+                color={obj.color}
+                url={obj.url}
+                buttonCallback={() => {
+                  delEvent(obj.uuid);
+                  forceUpdate();
+                }}
+              />
+            );
+          })
+        )}
+  
         <FooterComponent />
       </div>
     </>

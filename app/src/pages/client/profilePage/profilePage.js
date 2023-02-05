@@ -22,14 +22,14 @@ function ProfilePage() {
         */}
         
         <NavRow
-          icon={faArrowRightArrowLeft}
+        //   icon={faArrowRightArrowLeft}
           title="Export Data"
           url="/client/transfer"
           description="Transfer from one medical provider to another"
         />
 
         <NavRow
-          icon={faCapsules}
+        //   icon={faCapsules}
           title="View Medications"
           description="See prescriptions and medication schedule"
         />
