@@ -17,27 +17,38 @@ function TransferPage() {
   var fakeData = [
     {
       image: "/jess.png",
-      name: "Jess",
-      company: "🅱️oogle",
-      role: "Computer Doctor, fixer of random bugs",
+      name: "Jess Fan, MD",
+      tag: "Care Team",
+      company: "MediFae (hospital)",
+      role: "General practitioner",
     },
     {
       image: "/brian.jpg",
-      name: "Brian",
-      company: "❌D",
-      role: "Professional mind boggler",
+      name: "Brian Nguyen, MD",
+      tag: "Care Team",
+      company: "MediFae (hospital)",
+      role: "General practitioner",
     },
     {
       image: "/alison.png",
-      name: "Alison",
-      company: "Your mom",
-      role: "Roast master",
+      name: "Alison Sun, DDS",
+      tag: "Care Team",
+      company: "MediFae (hospital)",
+      role: "Dentist",
     },
     {
       image: "/aisha.jpg",
-      name: "Aisha",
-      company: "MediFae, inc.",
-      role: "Biggest brain",
+      name: "Aisha Omer, RN",
+      tag: "Care Team",
+      company: "MediFae (hospital)",
+      role: "Nurse",
+    },
+    {
+      image: "/pluto.jpg",
+      name: "Pluto",
+      tag: "Emotional Support Animal",
+      company: "Home",
+      role: "Land cloud   ",
     },
   ];
 
@@ -90,6 +101,7 @@ function TransferPage() {
                     </div>
                     <div>
                       <div class="font-bold">{obj.name}</div>
+                      <div class="text-sm opacity-50">{obj.tag}</div>
                     </div>
                   </div>
                 </td>

@@ -22,8 +22,26 @@ function HomePage() {
 
         <NavRow
           icon={faCapsules}
+          title="View Appointments"
+          description="See appointments and converse with your doctor"
+        />
+
+        <NavRow
+          icon={faCapsules}
+          title="View Nearby Facilities"
+          description="See nearby facilities and their contact information"
+        />
+
+        <NavRow
+          icon={faCapsules}
           title="View Medications"
           description="See prescriptions and medication schedule"
+        />
+
+        <NavRow
+          icon={faCapsules}
+          title="View Nearby Pharmacies"
+          description="See nearby pharmacies and their contact information"
         />
       </div>
 
