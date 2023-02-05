@@ -15,12 +15,14 @@ function OnBoardingPage() {
   return (
     <>
       <ul class="steps steps-vertical lg:steps-horizontal">
-        <li class= {getOnBoardingStep >= 0 ? "step step-primary": "step"}>Personal Information</li>
-        <li class= {getOnBoardingStep >= 1 ? "step step-primary": "step"}>Medical History</li>
-        <li class= {getOnBoardingStep >= 2 ? "step step-primary": "step"}>Insurance Information</li>
-        <li class= {getOnBoardingStep >= 3 ? "step step-primary": "step"}>Review and Submit</li>
+        <li class= {getOnBoardingStep == 0 ? "step step-primary": "step"}>Personal Information</li>
+        <li class= {getOnBoardingStep == 1 ? "step step-primary": "step"}>Medical History</li>
+        <li class= {getOnBoardingStep == 2 ? "step step-primary": "step"}>Insurance Information</li>
+        <li class= {getOnBoardingStep == 3 ? "step step-primary": "step"}>Review and Submit</li>
       </ul>
-      <br></br>
+      switch (getOnBoardingStep) {
+        case 0:
+          <br></br>
       Legal Name:
       <br></br>
       <input
@@ -171,8 +173,14 @@ function OnBoardingPage() {
       class="input w-full max-w-xs"
     />
     <br></br>
-
-
+        case 1:
+          //medical history
+        case 2:
+          //insurance
+        case 3:
+          //review and submit
+      }
+      
 
 
 
