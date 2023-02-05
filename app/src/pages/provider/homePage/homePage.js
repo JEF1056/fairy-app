@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import QrReader from "react-web-qr-reader";
-import { ConnectToPeer } from "../../../util/peer2peer";
+import {
+  ConnectToPeer,
+  SendAppointmentReminder,
+} from "../../../util/peer2peer";
 import { addEvent } from "../../client/eventsPage/eventsPage";
 
 const HomePage = () => {
@@ -16,8 +19,8 @@ const HomePage = () => {
   const handleScan = (result) => {
     if (result) {
       setResult(result);
-      result = JSON.parse(result.data)
-      ConnectToPeer(result.uuid, result.code)
+      result = JSON.parse(result.data);
+      ConnectToPeer(result.uuid, result.code);
     }
   };
 
@@ -40,6 +43,14 @@ const HomePage = () => {
       <br />
       <br />
       <p>{JSON.stringify(result.data)}</p>
+      <button
+        class="btn btn-wide"
+        onClick={() => {
+          SendAppointmentReminder();
+        }}
+      >
+        Send appointment
+      </button>
     </>
   );
 };

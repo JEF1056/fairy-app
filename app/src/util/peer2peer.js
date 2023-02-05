@@ -4,9 +4,9 @@ import { GetUserID } from "./userData";
 import { transferCode } from "./transferCodes";
 import { useRecoilValue } from "recoil";
 import secureLocalStorage from "react-secure-storage";
-import { useNavigate } from "react-router";
 
 const peer = new Peer(GetUserID());
+let conn;
 
 function addAuthorizedPeer(peerId, userData) {
   var authorizedPeers = JSON.parse(
@@ -50,7 +50,7 @@ function delAuthorizedPeer(peerId) {
 }
 
 export function ConnectToPeer(peerId, authCode) {
-  const conn = peer.connect(peerId);
+  conn = peer.connect(peerId);
   conn.on("open", () => {
     conn.send(
       JSON.stringify({
@@ -67,6 +67,14 @@ export function ConnectToPeer(peerId, authCode) {
       })
     );
   });
+}
+
+export function SendAppointmentReminder() {
+  conn.send(
+    JSON.stringify({
+      intent: "appointment",
+    })
+  );
 }
 
 export function Peer2PeerHandler() {
@@ -88,6 +96,12 @@ export function Peer2PeerHandler() {
               window.location.reload();
             }
           }
+          break;
+        case "appointment":
+          addEvent({
+            title: `Appointments`,
+            description: "Appointment Reminder: In-person visit 2/6/23 1:10PM.",
+          });
           break;
         default:
           break;
