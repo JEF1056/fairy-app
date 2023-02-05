@@ -1,11 +1,12 @@
-import React from "react";
+import React, { forceUpdate } from "react";
 import HeaderComponent from "../../../components/client/header";
 import FooterComponent from "../../../components/client/footer";
 import NavRow from "../../../components/client/navRow";
 import secureLocalStorage from "react-secure-storage";
-import AlertComponent from "../../../components/client/alert";
+import { v4 as uuidv4 } from "uuid";
 
 import {
+  faCircleInfo,
   faCapsules,
   faFileMedical,
   faCalendarDays,
@@ -17,82 +18,35 @@ import {
   faHouseMedical,
 } from "@fortawesome/free-solid-svg-icons";
 
-//updating medical info - FileMedical
-//viewing medical info - FileMedical
-//appointment reminder - CalendarDays
-//new test result now available - Vials
-//upcoming procedure - SuitcaseMedical
-//medication refill needed - Capsules
-//medication change - Capsules
-//medication reminder - Capsules
-//billing info needed - FileInvoiceDollar
-//new message from healthcare staff - UserDoctor
-//appointment canceled - CalendarDays
-//appointment confirmation - CalendarDays
-//apointment re-scheduled - CalendarDays
-//appointment check-in - CalendarCheck
-//pharmacy update - HouseMedical
-//billing info updated - FileInvoiceDollar
-
 export function addEvent(event) {
   var events = JSON.parse(secureLocalStorage.getItem("events"));
   if (!events) {
     events = [];
   }
+  event["uuid"] = uuidv4();
   events.push(event);
   events = JSON.stringify(events);
   secureLocalStorage.setItem("events", events);
 }
 
+function delEvent(uuid) {
+  var events = JSON.parse(secureLocalStorage.getItem("events"));
+  //loop through all objects, check if uuid is the same
+  //if same, remove it
+  for (let i = 0; i < events.length(); i++) {
+    if (events[i] == uuid) {
+      events.splice(i, 1);
+    }
+  }
+  secureLocalStorage.setItem("events", events);
+  forceUpdate();
+}
+
 function EventsPage() {
-  //   var storage = [
-  //     {
-  //       icon: faCapsules,
-  //       color
-  //        url :
-  //       title: "Medical Information Updated.",
-  //       description: "Your allergies have been updated.",
-  //     },
-  //     {
-  //       title: "Appointments",
-  //       description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
-  //     },
-  //     {
-  //       title: "Test Result Available.",
-  //       description: "Your XYZ scan is now available.",
-  //     },
-  //     {
-  //       title: "Upcoming Procedure",
-  //       description: "You have a procedure scheduled for 2:00PM tomorrow.",
-  //     },
-  //     {
-  //       title: "Medication Refill Needed",
-  //       description: "Your prescription is running low.",
-  //     },
-  //     {
-  //       title: "Billing Information Needed",
-  //       description: "Billing information needed.",
-  //     },
-  //     {
-  //       title: "Healthcare Staff Message",
-  //       description: "You have received a new message from a healthcare staff.",
-  //     },
-  //     {
-  //       title: "Appointment Re-Scheduled",
-  //       description:
-  //         "Your appointment has been re-scheduled to Tuesday, February 21st at 5:00PM.",
-  //     },
-  //     {
-  //       title: "Appointment Check-In",
-  //       description: "Check-in for your appointment.",
-  //     },
-  //     {
-  //       title: "Pharmacy Update",
-  //       description: "View Pharmacy.",
-  //     },
-  //   ];
-  //   storage = JSON.stringify(storage);
-  //   secureLocalStorage.setItem("events", storage);
+  // addEvent({
+  //   title: "Medical Information Updated.",
+  //   description: "Your allergies have been updated.",
+  // });
   let events = JSON.parse(secureLocalStorage.getItem("events"));
   if (!events) {
     events = [];
@@ -128,21 +82,21 @@ function EventsPage() {
                 obj.eventIcon = faUserDoctor;
               }
 
-              //eventIcon
               //title
               //description
               return (
-                <AlertComponent
-                  icon={obj.eventIcon}
+                <NavRow
+                  icon={faCircleInfo}
                   title={obj.title}
                   description={obj.description}
-                  url="View"
+                  callback={() => {
+                    delEvent(obj.uuid);
+                  }}
                 />
               );
             })}
 
         <FooterComponent />
-        {/* <p>{storage}</p> */}
       </div>
     </>
   );

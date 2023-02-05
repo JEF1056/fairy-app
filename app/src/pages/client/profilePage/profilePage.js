@@ -2,17 +2,25 @@ import React from "react";
 import HeaderComponent from "../../../components/client/header";
 import FooterComponent from "../../../components/client/footer";
 import NavRow from "../../../components/client/navRow";
-import {
-  faArrowRightArrowLeft,
-  faCapsules,
-} from "@fortawesome/free-solid-svg-icons";
 
-function HomePage() {
+function ProfilePage() {
   return (
     <>
       <HeaderComponent />
 
       <div class="h-max pb-16">
+        {/*for now just have a place to store info, link it up later
+        legal name
+        name
+        sex
+        preferred gender
+        race
+        ethnicity
+        phone
+        address
+        
+        */}
+        
         <NavRow
           icon={faArrowRightArrowLeft}
           title="Export Data"
@@ -21,10 +29,6 @@ function HomePage() {
         />
 
         <NavRow
-          buttonText="yeet"
-          callback={() => {
-            console.log("eeeeeeeeeeeeeeeeeeeee");
-          }}
           icon={faCapsules}
           title="View Medications"
           description="See prescriptions and medication schedule"
@@ -36,4 +40,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default ProfilePage;
