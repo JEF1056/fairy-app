@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function NavRow(props) {
   return (
     <div class="m-4">
-      <div class="alert shadow-lg">
+      <div class="alert shadow-lg btn-info">
         <a href={props.url}>
           <FontAwesomeIcon icon={props.icon} className="pr-3" />
           <div>

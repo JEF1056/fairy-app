@@ -7,7 +7,7 @@ import ProviderHomePage from "./pages/provider/homePage/homePage";
 import { RecoilRoot } from "recoil";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { RecoilUtilsComponent } from "./util/recoilUtils";
+import { Peer2PeerHandler } from "./util/peer2peer";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +36,7 @@ function App() {
   return (
     <RecoilRoot>
       <React.StrictMode>
-        <RecoilUtilsComponent />
+        <Peer2PeerHandler />
         <RouterProvider router={router} />
       </React.StrictMode>
     </RecoilRoot>
