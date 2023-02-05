@@ -6,7 +6,9 @@ function HeaderComponent() {
   return (
     <div className="navbar bg-base-300 b-2xl relative">
       <div className="flex-1">
-        <div className="btn btn-ghost normal-case text-xl">MediFae</div>
+        <div className="btn btn-ghost normal-case text-xl">
+          <a href="/client">MediFae</a>
+        </div>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -20,7 +22,7 @@ function HeaderComponent() {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52"
           >
             <li>
-              <a className="justify-between">
+              <a className="justify-between" href="/client/profile">
                 Profile
                 <span className="badge">New</span>
               </a>
