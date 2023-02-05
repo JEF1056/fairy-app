@@ -59,10 +59,6 @@ function CardNode(props) {
           <span class="label-text"> White</span>
           <br />
           <br />
-          <input type="checkbox" class="checkbox-xs" />
-          <span class="label-text"> Decline to Provide</span>
-          <br />
-          <br />
           Ethnicity:
           <br />
           <br />
@@ -72,10 +68,6 @@ function CardNode(props) {
           <br />
           <input type="checkbox" class="checkbox-xs" />
           <span class="label-text"> Not Hispanic or Latino</span>
-          <br />
-          <br />
-          <input type="checkbox" class="checkbox-xs" />
-          <span class="label-text"> Decline to Provide</span>
           <br />
           <br />
           Phone:

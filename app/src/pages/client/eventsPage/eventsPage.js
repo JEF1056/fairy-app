@@ -4,6 +4,7 @@ import FooterComponent from "../../../components/client/footer";
 import NavRow from "../../../components/client/navRow";
 import secureLocalStorage from "react-secure-storage";
 import { v4 as uuidv4 } from "uuid";
+import moment from "moment"
 
 import {
   faCircleInfo,
@@ -97,7 +98,6 @@ function EventsPage() {
   return (
     <>
       <HeaderComponent />
-
       <div class="h-max pb-16">
         {events.length === 0 ? (
           <div class="hero min-h-max">
