@@ -10,17 +10,20 @@ function ProfilePage() {
 
       <div class="h-max pb-16">
         <div class="card w-50 bg-base-100 shadow-xl m-10">
-          <figure class="px-10 pt-10">
-            <img
-              src="jess.png"
-              class="rounded-x1"
-            />
+          {/* <figure class="px-10 pt-10">
+            <img src="/jess.png" class="rounded-x1" />
+          </figure> */}
+          <figure>
+            <div class="avatar">
+              <div class="w-24 rounded-xl">
+                <img src="/jess.png" />
+              </div>
+            </div>
           </figure>
           <div class="card-body items-center text-center">
             <h1 class="card-title">Jess Fan</h1>
             <div class="overflow-x-auto">
               <table class="table table-compact">
-                <br></br>
                 <thead>
                   <th>Personal Information</th>
                 </thead>
@@ -50,8 +53,10 @@ function ProfilePage() {
                     <td>408-131-5829</td>
                   </tr>
                 </tbody>
-                <br></br>
-                <br></br>
+              </table>
+              <br></br>
+              <br></br>
+              <table class="table table-compact">
                 <thead>
                   <th>Medical Information</th>
                 </thead>
@@ -77,8 +82,10 @@ function ProfilePage() {
                     <td>Peanuts, Soy, Lactose, Meat</td>
                   </tr>
                 </tbody>
-                <br></br>
-                <br></br>
+              </table>
+              <br></br>
+              <br></br>
+              <table class="table table-compact">
                 <thead>
                   <th>Insurance Information</th>
                 </thead>
@@ -106,7 +113,7 @@ function ProfilePage() {
                   <tr>
                     <th>Insurance Card</th>
                     <td>
-                      <img src="#"></img>
+                      <img class="w-64" src="/insurance.jpg"></img>
                     </td>
                   </tr>
                 </tbody>
