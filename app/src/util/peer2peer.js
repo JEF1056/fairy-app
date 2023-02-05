@@ -4,21 +4,24 @@ import { GetUserID } from "./userData";
 import { transferCode } from "./transferCodes";
 import { useRecoilValue } from "recoil";
 import secureLocalStorage from "react-secure-storage";
+import { useNavigate } from "react-router";
 
 const peer = new Peer(GetUserID());
 
-function addAuthorizedPeer(peerId) {
+function addAuthorizedPeer(peerId, userData) {
   var authorizedPeers = JSON.parse(
     secureLocalStorage.getItem("authorizedPeers")
   );
   if (!authorizedPeers) {
-    authorizedPeers = [];
+    authorizedPeers = {};
   }
-  if (authorizedPeers.includes(peerId)) {
+  if (Object.keys(authorizedPeers).includes(peerId)) {
     return false;
   }
+
+  authorizedPeers[peerId] = userData;
   console.log(authorizedPeers);
-  authorizedPeers.push(peerId);
+
   secureLocalStorage.setItem(
     "authorizedPeers",
     JSON.stringify(authorizedPeers)
@@ -31,7 +34,9 @@ function delAuthorizedPeer(peerId) {
   var authorizedPeers = JSON.parse(
     secureLocalStorage.getItem("authorizedPeers")
   );
-  if (!(authorizedPeers && authorizedPeers.includes(peerId)) | !authorizedPeers) {
+  if (
+    !(authorizedPeers && authorizedPeers.includes(peerId)) | !authorizedPeers
+  ) {
     return;
   }
   const index = authorizedPeers.indexOf(peerId);
@@ -53,8 +58,11 @@ export function ConnectToPeer(peerId, authCode) {
         code: authCode,
         uuid: GetUserID(),
         user: {
-          name: "John Doe",
-          description: "This is a test user",
+          image: "/pluto.jpg",
+          name: "Pluto",
+          tag: "Emotional Support Animal",
+          company: "Home",
+          role: "Land cloud",
         },
       })
     );
@@ -70,13 +78,14 @@ export function Peer2PeerHandler() {
       switch (data.intent) {
         case "auth":
           if (data.code === getTransferCode) {
-            if (addAuthorizedPeer(data.uuid)) {
+            if (addAuthorizedPeer(data.uuid, data.user)) {
               addEvent({
                 title: `Added a Provider (${data.user.name})`,
-                description: data.user.description,
+                description: data.user.name,
                 url: `/client/provider/${data.uuid}`,
                 color: "btn-success",
               });
+              window.location.reload();
             }
           }
           break;

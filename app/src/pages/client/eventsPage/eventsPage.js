@@ -58,35 +58,37 @@ function delEvent(uuid) {
 function EventsPage() {
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
-  if (!events) {
-    let events = JSON.parse(secureLocalStorage.getItem("events"));
+
+  if (!secureLocalStorage.getItem("events")) {
+    addEvent({
+      title: "Medical Information Updated.",
+      description: "Your allergies have been updated.",
+    });
   }
-  addEvent({
-    title: "Medical Information Updated.",
-    description: "Your allergies have been updated.",
-  });
-  var fakeEvents = [{
-        uuid: uuidv4(),
-        title: "Medical Information Updated.",
-        description: "Your allergies have been updated.",
-      },
-      {
-        title: "Appointments",
-        description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
-      },
-      {
-        title: "Test Result Available.",
-        description: "Your XYZ scan is now available.",
-      },
-      {
-        title: "Upcoming Procedure",
-        description: "You have a procedure scheduled for 2:00PM tomorrow.",
-      },
-      {
-        title: "Medication Refill Needed",
-        description: "Your prescription is running low.",
-      },
-  ] 
+
+  var fakeEvents = [
+    {
+      uuid: uuidv4(),
+      title: "Medical Information Updated.",
+      description: "Your allergies have been updated.",
+    },
+    {
+      title: "Appointments",
+      description: "Appointment Reminder: In-person visit 5/1/23 1:10PM.",
+    },
+    {
+      title: "Test Result Available.",
+      description: "Your XYZ scan is now available.",
+    },
+    {
+      title: "Upcoming Procedure",
+      description: "You have a procedure scheduled for 2:00PM tomorrow.",
+    },
+    {
+      title: "Medication Refill Needed",
+      description: "Your prescription is running low.",
+    },
+  ];
 
   let events = JSON.parse(secureLocalStorage.getItem("events"));
   if (!events) {
@@ -96,9 +98,16 @@ function EventsPage() {
   return (
     <>
       <HeaderComponent />
+
       <div class="h-max pb-16">
         {events.length === 0 ? (
-          <h1 class="m-7">No events!</h1>
+          <div class="hero min-h-max">
+            <div class="hero-content text-center">
+              <div class="max-w-md">
+                <p class="font-bold">No events 😭</p>
+              </div>
+            </div>
+          </div>
         ) : (
           events.map((obj) => {
             if (obj.title.includes("Medical Information")) {
@@ -125,8 +134,6 @@ function EventsPage() {
               obj.eventIcon = faUserDoctor;
             }
 
-            //title
-            //description
             return (
               <NavRow
                 icon={obj.eventIcon}
@@ -147,7 +154,7 @@ function EventsPage() {
             );
           })
         )}
-  
+
         <FooterComponent />
       </div>
     </>
