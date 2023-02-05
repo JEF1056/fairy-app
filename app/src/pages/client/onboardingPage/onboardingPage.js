@@ -390,9 +390,6 @@ function OnBoardingPage() {
         <li class={getOnBoardingStep === 2 ? "step step-primary" : "step"}>
           Insurance Information
         </li>
-        <li class={getOnBoardingStep === 3 ? "step step-primary" : "step"}>
-          Review and Submit
-        </li>
       </ul>
       <div class="m-4">
       <CardNode step={getOnBoardingStep} />
@@ -401,11 +398,33 @@ function OnBoardingPage() {
       <button
         class="btn"
         onClick={() => {
+          setOnBoardingStep(getOnBoardingStep - 1);
+        }}
+      >
+        Back
+      </button>
+      
+      
+      {getOnBoardingStep <= 2 ? (<div class="p-4">
+      <button
+        class="btn"
+        onClick={() => {
           setOnBoardingStep(getOnBoardingStep + 1);
         }}
       >
         Next
-      </button>
+      </button></div>)
+: (
+      <div class="p-4">
+      <button
+        class="btn"
+        onClick={() => {
+          setOnBoardingStep(getOnBoardingStep + 1); //change so that it's only on last page: set last onboarding step case to homepage?
+        }}
+      >
+        Navigate to Home
+      </button> 
+      </div>)}
     </>
   );
 }
