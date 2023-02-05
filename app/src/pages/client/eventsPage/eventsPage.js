@@ -71,55 +71,57 @@ function EventsPage() {
     <>
       <HeaderComponent />
       <div class="h-max pb-16">
-        {events.length === 0
-          ? "No events!"
-          : events.map((obj) => {
-              if (obj.title.includes("Medical Information")) {
-                obj.eventIcon = faFileMedical;
-              } else if (obj.title.includes("Check")) {
-                //Check as in Check-In
-                obj.eventIcon = faCalendarCheck;
-              } else if (obj.title.includes("Appointment")) {
-                obj.eventIcon = faCalendarDays;
-              } else if (obj.title.includes("Billing")) {
-                obj.eventIcon = faFileInvoiceDollar;
-              } else if (obj.title.includes("Medication")) {
-                obj.eventIcon = faCapsules;
-              } else if (obj.title.includes("Pharmacy")) {
-                obj.eventIcon = faHouseMedical;
-              } else if (obj.title.includes("Procedure")) {
-                obj.eventIcon = faSuitcaseMedical;
-              } else if (obj.title.includes("Test")) {
-                //test as in test results
-                obj.eventIcon = faVials;
-              } else if (obj.title.includes("Message")) {
-                obj.eventIcon = faUserDoctor;
-              } else if (obj.title.includes("Provider")) {
-                obj.eventIcon = faUserDoctor;
-              }
+        {events.length === 0 ? (
+          <h1 class="m-7">No events!</h1>
+        ) : (
+          events.map((obj) => {
+            if (obj.title.includes("Medical Information")) {
+              obj.eventIcon = faFileMedical;
+            } else if (obj.title.includes("Check")) {
+              //Check as in Check-In
+              obj.eventIcon = faCalendarCheck;
+            } else if (obj.title.includes("Appointment")) {
+              obj.eventIcon = faCalendarDays;
+            } else if (obj.title.includes("Billing")) {
+              obj.eventIcon = faFileInvoiceDollar;
+            } else if (obj.title.includes("Medication")) {
+              obj.eventIcon = faCapsules;
+            } else if (obj.title.includes("Pharmacy")) {
+              obj.eventIcon = faHouseMedical;
+            } else if (obj.title.includes("Procedure")) {
+              obj.eventIcon = faSuitcaseMedical;
+            } else if (obj.title.includes("Test")) {
+              //test as in test results
+              obj.eventIcon = faVials;
+            } else if (obj.title.includes("Message")) {
+              obj.eventIcon = faUserDoctor;
+            } else if (obj.title.includes("Provider")) {
+              obj.eventIcon = faUserDoctor;
+            }
 
-              //title
-              //description
-              return (
-                <NavRow
-                  icon={faCircleInfo}
-                  title={obj.title}
-                  description={obj.description}
-                  buttonText="Dismiss"
-                  callback={() => {
-                    delEvent(obj.uuid);
-                    forceUpdate();
-                  }}
-                  color={obj.color}
-                  url={obj.url}
-                  buttonCallback={() => {
-                    delEvent(obj.uuid);
-                    forceUpdate();
-                  }}
-                />
-              );
-            })}
-
+            //title
+            //description
+            return (
+              <NavRow
+                icon={faCircleInfo}
+                title={obj.title}
+                description={obj.description}
+                buttonText="Dismiss"
+                callback={() => {
+                  delEvent(obj.uuid);
+                  forceUpdate();
+                }}
+                color={obj.color}
+                url={obj.url}
+                buttonCallback={() => {
+                  delEvent(obj.uuid);
+                  forceUpdate();
+                }}
+              />
+            );
+          })
+        )}
+  
         <FooterComponent />
       </div>
     </>

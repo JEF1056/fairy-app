@@ -9,7 +9,7 @@ function FooterComponent() {
   const buttons = [
     { icon: faHome, title: "Home", path: "/client" },
     { icon: faCalendar, title: "Events", path: "/client/events" },
-    { icon: faBook, title: "Profile", path: "/client/log" },
+    { icon: faBook, title: "Profile", path: "/client/profilePage" },
   ];
 
   return (

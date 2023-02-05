@@ -21,10 +21,6 @@ function HomePage() {
         />
 
         <NavRow
-          buttonText="yeet"
-          callback={() => {
-            console.log("eeeeeeeeeeeeeeeeeeeee");
-          }}
           icon={faCapsules}
           title="View Medications"
           description="See prescriptions and medication schedule"
