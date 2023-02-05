@@ -80,6 +80,8 @@ function EventsPage() {
                 obj.eventIcon = faVials;
               } else if (obj.title.includes("Message")) {
                 obj.eventIcon = faUserDoctor;
+              } else if (obj.title.includes("Provider")) {
+                obj.eventIcon = faUserDoctor; 
               }
 
               //title

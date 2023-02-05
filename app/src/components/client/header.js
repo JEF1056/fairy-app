@@ -4,15 +4,15 @@ import { faBell } from "@fortawesome/free-regular-svg-icons";
 
 function HeaderComponent() {
   return (
-    <div className="navbar bg-base-300 rounded-b-2xl relative">
+    <div className="navbar bg-base-300 b-2xl relative">
       <div className="flex-1">
-        <div className="btn btn-ghost normal-case text-xl">Faery</div>
+        <div className="btn btn-ghost normal-case text-xl">Medifae</div>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="/logo512.png" />
+              <img src="/medifae2.png" />
             </div>
           </label>
           <ul
