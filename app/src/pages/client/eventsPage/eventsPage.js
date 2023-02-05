@@ -70,7 +70,6 @@ function EventsPage() {
   return (
     <>
       <HeaderComponent />
-
       <div class="h-max pb-16">
         {events.length === 0
           ? "No events!"
@@ -96,7 +95,7 @@ function EventsPage() {
               } else if (obj.title.includes("Message")) {
                 obj.eventIcon = faUserDoctor;
               } else if (obj.title.includes("Provider")) {
-                obj.eventIcon = faUserDoctor; 
+                obj.eventIcon = faUserDoctor;
               }
 
               //title
@@ -106,13 +105,13 @@ function EventsPage() {
                   icon={faCircleInfo}
                   title={obj.title}
                   description={obj.description}
+                  buttonText="Dismiss"
                   callback={() => {
                     delEvent(obj.uuid);
                     forceUpdate();
                   }}
                   color={obj.color}
                   url={obj.url}
-                  buttonText={"dismiss"}
                   buttonCallback={() => {
                     delEvent(obj.uuid);
                     forceUpdate();
